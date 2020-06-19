@@ -1,8 +1,25 @@
+import 'package:climate_app/config/route.dart';
 import 'package:climate_app/theme/colors.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 
-class LoadingScreen extends StatelessWidget {
-  const LoadingScreen({Key key}) : super(key: key);
+class LoadingScreen extends StatefulWidget {
+  @override
+  _LoadingScreenState createState() => _LoadingScreenState();
+}
+
+class _LoadingScreenState extends State<LoadingScreen> {
+  void getLocationData() {
+    Future.delayed(Duration(seconds: 3), () {
+      Navigator.pushNamed(context, Routes.home);
+    });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    getLocationData();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -50,12 +67,17 @@ class LoadingScreen extends StatelessWidget {
               )
             )
           ),
+          
           Expanded(
             flex: 1,
             child: Container(
-              child: Text('')
+              child: SpinKitRipple(
+                color: kOrangeColor,
+                size: 80.0,
+              )
             )
-          )
+          ),
+        
         ],
       ),
     );

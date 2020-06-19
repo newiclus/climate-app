@@ -1,4 +1,5 @@
 import 'package:climate_app/config/route.dart';
+import 'package:climate_app/screens/home.dart';
 import 'package:climate_app/screens/loading.dart';
 import 'package:climate_app/theme/colors.dart';
 import 'package:flutter/material.dart';
@@ -21,10 +22,10 @@ class ClimateApp extends StatelessWidget {
           bodyText2: TextStyle(color: kTextColor),
         ),
       ),
-      initialRoute: Routes.welcome,
+      initialRoute: Routes.home,
       routes: {
         Routes.welcome: (context) => LoadingScreen(),
-        //  Routes.home: (context) => RegistrationScreen(),
+        Routes.home: (context) => HomeScreen(),
         //  Routes.search: (context) => ChatScreen(),
       },
     );
